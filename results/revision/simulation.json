@@ -1,0 +1,727 @@
+[
+  {
+    "model": {
+      "demand": 572.0,
+      "required": 30.0,
+      "d1": 0.35,
+      "d2": 0.1,
+      "gamma": -1.0,
+      "dE": -1.0,
+      "value": 50.0,
+      "premium": 30.0,
+      "travel": 20.0,
+      "preference": 0.0,
+      "cost_on": 112.0,
+      "cost_off": 168.0,
+      "capacity": 972.0,
+      "cap_on": 60.0,
+      "cap_off": 80.0,
+      "penalty": 10.0,
+      "followup_fee": 1.0,
+      "copay": 1.0,
+      "revenue_E": 1.0,
+      "elasticity": 0.0,
+      "recurrent": false,
+      "servers": 0,
+      "nu": 54.0
+    },
+    "policy": {
+      "mu_on": 123.77502496302851,
+      "mu_off": 848.2249750369715,
+      "decision": 123.77502496302851,
+      "p_on": 60.0,
+      "p_off": 53.14152753849713,
+      "flow_on": 0.0,
+      "flow_off": 572.0,
+      "required_actual": 30.0,
+      "region": "F",
+      "gross": 35603.19957817527,
+      "penalty": 0.0,
+      "objective": 35603.19957817527,
+      "access": 1.0,
+      "wait_on": 0.015729447225251443,
+      "wait_off": 0.004061326434695939,
+      "wait_E": 0.005634271157221083,
+      "wait_initial_on": 0.01770144213027882,
+      "wait_initial_off": 0.005634271157221083,
+      "exposure": 0.005634271157221083,
+      "utility_on": -29.26169815518526,
+      "utility_off": -1.8844886340296796e-07,
+      "residual": 1.8844886340296796e-07,
+      "referral_forward": 0.0,
+      "referral_reverse": 60.2,
+      "regional_support": "BF",
+      "regional_target_v": 0.0,
+      "regional_target_f": 571.9999381761751,
+      "regional_nfev": 942,
+      "regime": "dual",
+      "solver": "regional",
+      "search_best": 35603.19957817527,
+      "search_spread": 0.0,
+      "regional_candidates": {
+        "B": -3140.0,
+        "V": 31744.852119746138,
+        "F": 35603.19946472906,
+        "BF": 35603.19957817527,
+        "BV": 31744.85222837743,
+        "VF": 35603.19946472906
+      }
+    },
+    "mode": "wardrop",
+    "replications": 10000,
+    "seed": 910000,
+    "warmup": 10.0,
+    "measurement": 20.0,
+    "statistics": {
+      "gross": {
+        "mean": 35601.481739188515,
+        "halfwidth": 6.641417656756921,
+        "n": 10000
+      },
+      "objective": {
+        "mean": 35601.481739188515,
+        "halfwidth": 6.641417656756921,
+        "n": 10000
+      },
+      "access": {
+        "mean": 1.0,
+        "halfwidth": 0.0,
+        "n": 10000
+      },
+      "episode_on": null,
+      "episode_off": {
+        "mean": 0.005634621256622218,
+        "halfwidth": 5.285787907743088e-06,
+        "n": 10000,
+        "total_observations": 114398982
+      },
+      "episode_E": {
+        "mean": 0.005635179664873262,
+        "halfwidth": 8.166658828898757e-06,
+        "n": 10000,
+        "total_observations": 5999798
+      },
+      "count_on": {
+        "mean": 0.0,
+        "halfwidth": 0.0,
+        "n": 10000
+      },
+      "count_off": {
+        "mean": 11439.8982,
+        "halfwidth": 2.09168802164631,
+        "n": 10000
+      },
+      "count_E": {
+        "mean": 599.9798,
+        "halfwidth": 0.4815303477898135,
+        "n": 10000
+      },
+      "cost_on": null,
+      "cost_off": {
+        "mean": 0.8585619572079844,
+        "halfwidth": 0.0008033137797884725,
+        "n": 10000,
+        "total_observations": 114398982
+      },
+      "cost_E": {
+        "mean": 0.8585590406069193,
+        "halfwidth": 0.0011350090537310456,
+        "n": 10000,
+        "total_observations": 5999798
+      },
+      "encounter_on_first": null,
+      "encounter_on_followup": {
+        "mean": 0.015729902869977105,
+        "halfwidth": 2.5494876650127277e-05,
+        "n": 10000,
+        "total_observations": 12035958
+      },
+      "encounter_off_first": {
+        "mean": 0.004062162758933602,
+        "halfwidth": 4.285761268346227e-06,
+        "n": 10000,
+        "total_observations": 120398780
+      },
+      "encounter_off_followup": null,
+      "n_on_first": {
+        "mean": 0.0,
+        "halfwidth": 0.0,
+        "n": 10000
+      },
+      "n_on_followup": {
+        "mean": 1203.5958,
+        "halfwidth": 0.6752312898717443,
+        "n": 10000
+      },
+      "n_off_first": {
+        "mean": 12039.878,
+        "halfwidth": 2.149242926932013,
+        "n": 10000
+      },
+      "n_off_followup": {
+        "mean": 0.0,
+        "halfwidth": 0.0,
+        "n": 10000
+      },
+      "virtual_on": {
+        "mean": 0.015727097374929083,
+        "halfwidth": 1.4339941095424828e-05,
+        "n": 10000
+      },
+      "virtual_off": {
+        "mean": 0.004061847335254964,
+        "halfwidth": 3.2893297130633764e-06,
+        "n": 10000
+      }
+    },
+    "name": "moderate",
+    "seconds": 27.407278060913086
+  },
+  {
+    "model": {
+      "demand": 878,
+      "required": 30.0,
+      "d1": 0.35,
+      "d2": 0.1,
+      "gamma": -1.0,
+      "dE": -1.0,
+      "value": 50.0,
+      "premium": 30.0,
+      "travel": 20.0,
+      "preference": 0.0,
+      "cost_on": 112.0,
+      "cost_off": 168.0,
+      "capacity": 972.0,
+      "cap_on": 60.0,
+      "cap_off": 80.0,
+      "penalty": 10.0,
+      "followup_fee": 1.0,
+      "copay": 1.0,
+      "revenue_E": 1.0,
+      "elasticity": 0.0,
+      "recurrent": false,
+      "servers": 0,
+      "nu": 54.0
+    },
+    "policy": {
+      "mu_on": 95.30987167020956,
+      "mu_off": 876.6901283297905,
+      "decision": 95.30987167020956,
+      "p_on": 23.518995641156295,
+      "p_off": 53.271671968598234,
+      "flow_on": 0.0,
+      "flow_off": 798.3910609378356,
+      "required_actual": 30.0,
+      "region": "BF",
+      "gross": 46078.06943513643,
+      "penalty": 796.0893906216438,
+      "objective": 45281.980044514785,
+      "access": 0.9093292265806784,
+      "wait_on": 0.08018753891824748,
+      "wait_off": 0.020704333520248662,
+      "wait_E": 0.02872308741207341,
+      "wait_initial_on": 0.09024061951247317,
+      "wait_initial_off": 0.02872308741207341,
+      "exposure": 0.028723087412073408,
+      "utility_on": -1.5987211554602254e-14,
+      "utility_off": -7.993605777301127e-15,
+      "residual": 7.993605777301127e-15,
+      "referral_forward": 0.0,
+      "referral_reverse": 82.83910609378357,
+      "regional_support": "BF",
+      "regional_target_v": 0.0,
+      "regional_target_f": 798.3910609378355,
+      "regional_nfev": 925,
+      "regime": "dual",
+      "solver": "regional",
+      "search_best": 45281.980044514785,
+      "search_spread": 0.0,
+      "regional_candidates": {
+        "B": -6200.0,
+        "BF": 45281.980044514785,
+        "BV": 30476.679199555205
+      }
+    },
+    "mode": "wardrop",
+    "replications": 10000,
+    "seed": 910000,
+    "warmup": 10.0,
+    "measurement": 20.0,
+    "statistics": {
+      "gross": {
+        "mean": 46076.10625234583,
+        "halfwidth": 7.003188755076824,
+        "n": 10000
+      },
+      "objective": {
+        "mean": 45279.82245234583,
+        "halfwidth": 7.015530286195677,
+        "n": 10000
+      },
+      "access": {
+        "mean": 0.909304338669603,
+        "halfwidth": 4.287409856282308e-05,
+        "n": 10000
+      },
+      "episode_on": null,
+      "episode_off": {
+        "mean": 0.028691887812436492,
+        "halfwidth": 0.0001254265232699013,
+        "n": 10000,
+        "total_observations": 159668638
+      },
+      "episode_E": {
+        "mean": 0.028737618730254783,
+        "halfwidth": 0.00013018681593308508,
+        "n": 10000,
+        "total_observations": 6000096
+      },
+      "count_on": {
+        "mean": 0.0,
+        "halfwidth": 0.0,
+        "n": 10000
+      },
+      "count_off": {
+        "mean": 15966.8638,
+        "halfwidth": 2.4619162157904255,
+        "n": 10000
+      },
+      "count_E": {
+        "mean": 600.0096,
+        "halfwidth": 0.48155680820822266,
+        "n": 10000
+      },
+      "cost_on": null,
+      "cost_off": {
+        "mean": 4.371095909630507,
+        "halfwidth": 0.019736723991837627,
+        "n": 10000,
+        "total_observations": 159668638
+      },
+      "cost_E": {
+        "mean": 4.376926704488389,
+        "halfwidth": 0.020278747519351662,
+        "n": 10000,
+        "total_observations": 6000096
+      },
+      "encounter_on_first": null,
+      "encounter_on_followup": {
+        "mean": 0.08021248754852535,
+        "halfwidth": 0.0005275593878631868,
+        "n": 10000,
+        "total_observations": 16567748
+      },
+      "encounter_off_first": {
+        "mean": 0.02067196697028418,
+        "halfwidth": 0.00010917741363130673,
+        "n": 10000,
+        "total_observations": 165668734
+      },
+      "encounter_off_followup": null,
+      "n_on_first": {
+        "mean": 0.0,
+        "halfwidth": 0.0,
+        "n": 10000
+      },
+      "n_on_followup": {
+        "mean": 1656.7748,
+        "halfwidth": 0.7940136726786544,
+        "n": 10000
+      },
+      "n_off_first": {
+        "mean": 16566.8734,
+        "halfwidth": 2.508723973341082,
+        "n": 10000
+      },
+      "n_off_followup": {
+        "mean": 0.0,
+        "halfwidth": 0.0,
+        "n": 10000
+      },
+      "virtual_on": {
+        "mean": 0.08019795071575749,
+        "halfwidth": 0.00047420390436015146,
+        "n": 10000
+      },
+      "virtual_off": {
+        "mean": 0.020673227336785924,
+        "halfwidth": 0.00010458807278547453,
+        "n": 10000
+      }
+    },
+    "name": "high",
+    "seconds": 23.26931643486023
+  },
+  {
+    "model": {
+      "demand": 572,
+      "required": 30.0,
+      "d1": 0.35,
+      "d2": 0.4,
+      "gamma": -1.0,
+      "dE": -1.0,
+      "value": 50.0,
+      "premium": 15,
+      "travel": 20.0,
+      "preference": 0.0,
+      "cost_on": 112.0,
+      "cost_off": 168.0,
+      "capacity": 972.0,
+      "cap_on": 60.0,
+      "cap_off": 80.0,
+      "penalty": 10.0,
+      "followup_fee": 1.0,
+      "copay": 1.0,
+      "revenue_E": 1.0,
+      "elasticity": 0.0,
+      "recurrent": false,
+      "servers": 0,
+      "nu": 54.0
+    },
+    "policy": {
+      "mu_on": 710.3799119798985,
+      "mu_off": 261.62008802010155,
+      "decision": 710.3799119798985,
+      "p_on": 13.702555381908754,
+      "p_off": 80.0,
+      "flow_on": 572.0,
+      "flow_off": 0.0,
+      "required_actual": 30.0,
+      "region": "V",
+      "gross": 27515.592978017965,
+      "penalty": 0.0,
+      "objective": 27515.592978017965,
+      "access": 1.0,
+      "wait_on": 0.02159831319839567,
+      "wait_off": 0.03182677271178337,
+      "wait_E": 0.04046609799114164,
+      "wait_initial_on": 0.03576144749529524,
+      "wait_initial_off": 0.04046609799114164,
+      "exposure": 0.03599589851668293,
+      "utility_on": 0.0,
+      "utility_off": -46.79552439963123,
+      "residual": 0.0,
+      "referral_forward": 200.2,
+      "referral_reverse": 92.08,
+      "regional_support": "V",
+      "regional_target_v": 572.0,
+      "regional_target_f": 0.0,
+      "regime": "dual",
+      "solver": "regional",
+      "search_best": 27515.592978017965,
+      "search_spread": 0.0,
+      "regional_candidates": {
+        "B": -2600.0,
+        "V": 27515.592978017965,
+        "F": 25290.012293700656,
+        "BF": 25290.012293700653,
+        "BV": 27515.59297801793,
+        "VF": 26114.270428229498
+      }
+    },
+    "mode": "wardrop",
+    "replications": 10000,
+    "seed": 910000,
+    "warmup": 10.0,
+    "measurement": 20.0,
+    "statistics": {
+      "gross": {
+        "mean": 27517.149038196254,
+        "halfwidth": 6.586887076273615,
+        "n": 10000
+      },
+      "objective": {
+        "mean": 27517.149038196254,
+        "halfwidth": 6.586887076273615,
+        "n": 10000
+      },
+      "access": {
+        "mean": 1.0,
+        "halfwidth": 0.0,
+        "n": 10000
+      },
+      "episode_on": {
+        "mean": 0.03579098597629575,
+        "halfwidth": 0.00014695708254232204,
+        "n": 10000,
+        "total_observations": 114398833
+      },
+      "episode_off": null,
+      "episode_E": {
+        "mean": 0.04050678853751371,
+        "halfwidth": 0.0001595296901040275,
+        "n": 10000,
+        "total_observations": 6000208
+      },
+      "count_on": {
+        "mean": 11439.8833,
+        "halfwidth": 2.103283807041174,
+        "n": 10000
+      },
+      "count_off": {
+        "mean": 0.0,
+        "halfwidth": 0.0,
+        "n": 10000
+      },
+      "count_E": {
+        "mean": 600.0208,
+        "halfwidth": 0.48005066519894646,
+        "n": 10000
+      },
+      "cost_on": {
+        "mean": 4.6332755943608905,
+        "halfwidth": 0.01810695300037252,
+        "n": 10000,
+        "total_observations": 114398833
+      },
+      "cost_off": null,
+      "cost_E": {
+        "mean": 6.321431566834528,
+        "halfwidth": 0.025719030842991816,
+        "n": 10000,
+        "total_observations": 6000208
+      },
+      "encounter_on_first": {
+        "mean": 0.021609966021767655,
+        "halfwidth": 0.00011200250539730172,
+        "n": 10000,
+        "total_observations": 114398833
+      },
+      "encounter_on_followup": {
+        "mean": 0.02160672153201019,
+        "halfwidth": 0.00011326486044999479,
+        "n": 10000,
+        "total_observations": 18419251
+      },
+      "encounter_off_first": {
+        "mean": 0.03186912947558916,
+        "halfwidth": 0.00014442756384522903,
+        "n": 10000,
+        "total_observations": 6000208
+      },
+      "encounter_off_followup": {
+        "mean": 0.031866963857399254,
+        "halfwidth": 0.00014240615179470406,
+        "n": 10000,
+        "total_observations": 40045865
+      },
+      "n_on_first": {
+        "mean": 11439.8833,
+        "halfwidth": 2.103283807041174,
+        "n": 10000
+      },
+      "n_on_followup": {
+        "mean": 1841.9251,
+        "halfwidth": 0.8463298981249981,
+        "n": 10000
+      },
+      "n_off_first": {
+        "mean": 600.0208,
+        "halfwidth": 0.48005066519894646,
+        "n": 10000
+      },
+      "n_off_followup": {
+        "mean": 4004.5865,
+        "halfwidth": 1.2334920125169981,
+        "n": 10000
+      },
+      "virtual_on": {
+        "mean": 0.021608734868887626,
+        "halfwidth": 0.00010678630733014934,
+        "n": 10000
+      },
+      "virtual_off": {
+        "mean": 0.03186188299836105,
+        "halfwidth": 0.00012920025669225455,
+        "n": 10000
+      }
+    },
+    "name": "mixed",
+    "seconds": 23.797098398208618
+  },
+  {
+    "model": {
+      "demand": 878,
+      "required": 30.0,
+      "d1": 0.35,
+      "d2": 0.4,
+      "gamma": -1.0,
+      "dE": -1.0,
+      "value": 50.0,
+      "premium": 15,
+      "travel": 20.0,
+      "preference": 0.0,
+      "cost_on": 112.0,
+      "cost_off": 168.0,
+      "capacity": 972.0,
+      "cap_on": 60.0,
+      "cap_off": 80.0,
+      "penalty": 10.0,
+      "followup_fee": 1.0,
+      "copay": 1.0,
+      "revenue_E": 1.0,
+      "elasticity": 0.0,
+      "recurrent": false,
+      "servers": 0,
+      "nu": 54.0
+    },
+    "policy": {
+      "mu_on": 710.5991350867232,
+      "mu_off": 261.4008649132768,
+      "decision": 710.5991350867232,
+      "p_on": 13.633785291966518,
+      "p_off": 80.0,
+      "flow_on": 572.8686844427782,
+      "flow_off": 0.0,
+      "required_actual": 30.0,
+      "region": "BV",
+      "gross": 27507.74884227133,
+      "penalty": 3051.313155572218,
+      "objective": 24456.43568669911,
+      "access": 0.6524700278391551,
+      "wait_on": 0.021964102615640694,
+      "wait_off": 0.032365784782196746,
+      "wait_E": 0.04115142582845303,
+      "wait_initial_on": 0.03636710165559925,
+      "wait_initial_off": 0.04115142582845303,
+      "exposure": 0.03660517958017792,
+      "utility_on": -8.881784197001252e-16,
+      "utility_off": -46.874957757376364,
+      "residual": 8.881784197001252e-16,
+      "referral_forward": 200.50403955497237,
+      "referral_reverse": 92.20161582198894,
+      "regional_support": "BV",
+      "regional_target_v": 572.8686844427782,
+      "regional_target_f": 0.0,
+      "regional_nfev": 241,
+      "regime": "dual",
+      "solver": "regional",
+      "search_best": 24456.43568669911,
+      "search_spread": 0.0,
+      "regional_candidates": {
+        "B": -5660.0,
+        "BF": 22889.564446156863,
+        "BV": 24456.43568669911
+      }
+    },
+    "mode": "wardrop",
+    "replications": 10000,
+    "seed": 910000,
+    "warmup": 10.0,
+    "measurement": 20.0,
+    "statistics": {
+      "gross": {
+        "mean": 27503.36661683566,
+        "halfwidth": 6.580359922728044,
+        "n": 10000
+      },
+      "objective": {
+        "mean": 24452.77901683566,
+        "halfwidth": 6.610758389334333,
+        "n": 10000
+      },
+      "access": {
+        "mean": 0.6525184797436923,
+        "halfwidth": 6.968248003216105e-05,
+        "n": 10000
+      },
+      "episode_on": {
+        "mean": 0.03624176217303156,
+        "halfwidth": 0.00014822886965317408,
+        "n": 10000,
+        "total_observations": 114570920
+      },
+      "episode_off": null,
+      "episode_E": {
+        "mean": 0.04107453769862943,
+        "halfwidth": 0.0001636638802177461,
+        "n": 10000,
+        "total_observations": 5999101
+      },
+      "count_on": {
+        "mean": 11457.092,
+        "halfwidth": 2.098137866352099,
+        "n": 10000
+      },
+      "count_off": {
+        "mean": 0.0,
+        "halfwidth": 0.0,
+        "n": 10000
+      },
+      "count_E": {
+        "mean": 599.9101,
+        "halfwidth": 0.48297136569578947,
+        "n": 10000
+      },
+      "cost_on": {
+        "mean": 4.692859083702024,
+        "halfwidth": 0.018272450677312684,
+        "n": 10000,
+        "total_observations": 114570920
+      },
+      "cost_off": null,
+      "cost_E": {
+        "mean": 6.411504044483576,
+        "halfwidth": 0.026423071524229135,
+        "n": 10000,
+        "total_observations": 5999101
+      },
+      "encounter_on_first": {
+        "mean": 0.02186357635846205,
+        "halfwidth": 0.00011331670220595243,
+        "n": 10000,
+        "total_observations": 114570920
+      },
+      "encounter_on_followup": {
+        "mean": 0.02186194898506985,
+        "halfwidth": 0.00011444345571285947,
+        "n": 10000,
+        "total_observations": 18436252
+      },
+      "encounter_off_first": {
+        "mean": 0.032342068254233546,
+        "halfwidth": 0.00014874225117327442,
+        "n": 10000,
+        "total_observations": 5999101
+      },
+      "encounter_off_followup": {
+        "mean": 0.032341168155744386,
+        "halfwidth": 0.00014636104250683195,
+        "n": 10000,
+        "total_observations": 40091427
+      },
+      "n_on_first": {
+        "mean": 11457.092,
+        "halfwidth": 2.098137866352099,
+        "n": 10000
+      },
+      "n_on_followup": {
+        "mean": 1843.6252,
+        "halfwidth": 0.8292742825185812,
+        "n": 10000
+      },
+      "n_off_first": {
+        "mean": 599.9101,
+        "halfwidth": 0.48297136569578947,
+        "n": 10000
+      },
+      "n_off_followup": {
+        "mean": 4009.1427,
+        "halfwidth": 1.2354602258255825,
+        "n": 10000
+      },
+      "virtual_on": {
+        "mean": 0.021869209433298193,
+        "halfwidth": 0.000108110037078124,
+        "n": 10000
+      },
+      "virtual_off": {
+        "mean": 0.032337599524300785,
+        "halfwidth": 0.00013302317120716687,
+        "n": 10000
+      }
+    },
+    "name": "mixed_high",
+    "seconds": 25.941903829574585
+  }
+]

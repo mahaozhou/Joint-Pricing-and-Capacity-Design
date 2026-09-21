@@ -1,0 +1,175 @@
+{
+  "model": {
+    "demand": 878,
+    "required": 30.0,
+    "d1": 0.35,
+    "d2": 0.1,
+    "gamma": -1.0,
+    "dE": -1.0,
+    "value": 50.0,
+    "premium": 30.0,
+    "travel": 20.0,
+    "preference": 0.0,
+    "cost_on": 112.0,
+    "cost_off": 168.0,
+    "capacity": 972.0,
+    "cap_on": 60.0,
+    "cap_off": 80.0,
+    "penalty": 10.0,
+    "followup_fee": 1.0,
+    "copay": 1.0,
+    "revenue_E": 1.0,
+    "elasticity": 0.0,
+    "recurrent": false,
+    "servers": 0,
+    "nu": 54.0
+  },
+  "policy": {
+    "mu_on": 95.30987167020956,
+    "mu_off": 876.6901283297905,
+    "decision": 95.30987167020956,
+    "p_on": 23.518995641156295,
+    "p_off": 53.271671968598234,
+    "flow_on": 0.0,
+    "flow_off": 798.3910609378356,
+    "required_actual": 30.0,
+    "region": "BF",
+    "gross": 46078.06943513643,
+    "penalty": 796.0893906216438,
+    "objective": 45281.980044514785,
+    "access": 0.9093292265806784,
+    "wait_on": 0.08018753891824748,
+    "wait_off": 0.020704333520248662,
+    "wait_E": 0.02872308741207341,
+    "wait_initial_on": 0.09024061951247317,
+    "wait_initial_off": 0.02872308741207341,
+    "exposure": 0.028723087412073408,
+    "utility_on": -1.5987211554602254e-14,
+    "utility_off": -7.993605777301127e-15,
+    "residual": 7.993605777301127e-15,
+    "referral_forward": 0.0,
+    "referral_reverse": 82.83910609378357,
+    "regional_support": "BF",
+    "regional_target_v": 0.0,
+    "regional_target_f": 798.3910609378355,
+    "regional_nfev": 925,
+    "regime": "dual",
+    "solver": "regional",
+    "search_best": 45281.980044514785,
+    "search_spread": 0.0,
+    "regional_candidates": {
+      "B": -6200.0,
+      "BF": 45281.980044514785,
+      "BV": 30476.679199555205
+    }
+  },
+  "mode": "wardrop",
+  "replications": 10000,
+  "seed": 910000,
+  "warmup": 10.0,
+  "measurement": 20.0,
+  "statistics": {
+    "gross": {
+      "mean": 46076.10625234583,
+      "halfwidth": 7.003188755076824,
+      "n": 10000
+    },
+    "objective": {
+      "mean": 45279.82245234583,
+      "halfwidth": 7.015530286195677,
+      "n": 10000
+    },
+    "access": {
+      "mean": 0.909304338669603,
+      "halfwidth": 4.287409856282308e-05,
+      "n": 10000
+    },
+    "episode_on": null,
+    "episode_off": {
+      "mean": 0.028691887812436492,
+      "halfwidth": 0.0001254265232699013,
+      "n": 10000,
+      "total_observations": 159668638
+    },
+    "episode_E": {
+      "mean": 0.028737618730254783,
+      "halfwidth": 0.00013018681593308508,
+      "n": 10000,
+      "total_observations": 6000096
+    },
+    "count_on": {
+      "mean": 0.0,
+      "halfwidth": 0.0,
+      "n": 10000
+    },
+    "count_off": {
+      "mean": 15966.8638,
+      "halfwidth": 2.4619162157904255,
+      "n": 10000
+    },
+    "count_E": {
+      "mean": 600.0096,
+      "halfwidth": 0.48155680820822266,
+      "n": 10000
+    },
+    "cost_on": null,
+    "cost_off": {
+      "mean": 4.371095909630507,
+      "halfwidth": 0.019736723991837627,
+      "n": 10000,
+      "total_observations": 159668638
+    },
+    "cost_E": {
+      "mean": 4.376926704488389,
+      "halfwidth": 0.020278747519351662,
+      "n": 10000,
+      "total_observations": 6000096
+    },
+    "encounter_on_first": null,
+    "encounter_on_followup": {
+      "mean": 0.08021248754852535,
+      "halfwidth": 0.0005275593878631868,
+      "n": 10000,
+      "total_observations": 16567748
+    },
+    "encounter_off_first": {
+      "mean": 0.02067196697028418,
+      "halfwidth": 0.00010917741363130673,
+      "n": 10000,
+      "total_observations": 165668734
+    },
+    "encounter_off_followup": null,
+    "n_on_first": {
+      "mean": 0.0,
+      "halfwidth": 0.0,
+      "n": 10000
+    },
+    "n_on_followup": {
+      "mean": 1656.7748,
+      "halfwidth": 0.7940136726786544,
+      "n": 10000
+    },
+    "n_off_first": {
+      "mean": 16566.8734,
+      "halfwidth": 2.508723973341082,
+      "n": 10000
+    },
+    "n_off_followup": {
+      "mean": 0.0,
+      "halfwidth": 0.0,
+      "n": 10000
+    },
+    "virtual_on": {
+      "mean": 0.08019795071575749,
+      "halfwidth": 0.00047420390436015146,
+      "n": 10000
+    },
+    "virtual_off": {
+      "mean": 0.020673227336785924,
+      "halfwidth": 0.00010458807278547453,
+      "n": 10000
+    }
+  },
+  "name": "high",
+  "seconds": 23.26931643486023
+}

@@ -1,0 +1,183 @@
+{
+  "model": {
+    "demand": 572.0,
+    "required": 30.0,
+    "d1": 0.35,
+    "d2": 0.4,
+    "gamma": -1.0,
+    "dE": -1.0,
+    "value": 50.0,
+    "premium": 15.0,
+    "travel": 20.0,
+    "preference": 0.0,
+    "cost_on": 112.0,
+    "cost_off": 168.0,
+    "capacity": 972.0,
+    "cap_on": 60.0,
+    "cap_off": 80.0,
+    "penalty": 10.0,
+    "followup_fee": 1.0,
+    "copay": 1.0,
+    "revenue_E": 1.0,
+    "elasticity": 0.0,
+    "recurrent": false,
+    "servers": 0,
+    "nu": 54.0
+  },
+  "policy": {
+    "mu_on": 430.0,
+    "mu_off": 542.0,
+    "decision": 430.0,
+    "p_on": 29.200000000000006,
+    "p_off": 27.572631578947362,
+    "flow_on": 179.99999999999986,
+    "flow_off": 392.0000000000001,
+    "required_actual": 30.0,
+    "region": "VF",
+    "gross": 24293.526315789473,
+    "penalty": 0.0,
+    "objective": 24293.526315789473,
+    "access": 1.0,
+    "wait_on": 0.01785714285714282,
+    "wait_off": 0.017543859649122823,
+    "wait_E": 0.02468671679197995,
+    "wait_initial_on": 0.0264974937343358,
+    "wait_initial_off": 0.02468671679197995,
+    "exposure": 0.02522814511361459,
+    "utility_on": 2.0,
+    "utility_off": 2.0000000000000013,
+    "residual": 1.3322676295501878e-15,
+    "referral_forward": 62.99999999999994,
+    "referral_reverse": 194.00000000000006
+  },
+  "mode": "wardrop",
+  "replications": 10000,
+  "seed": 1910000,
+  "warmup": 10.0,
+  "measurement": 20.0,
+  "statistics": {
+    "gross": {
+      "mean": 24294.253372257088,
+      "halfwidth": 4.655025898365515,
+      "n": 10000
+    },
+    "objective": {
+      "mean": 24294.253372257088,
+      "halfwidth": 4.655025898365515,
+      "n": 10000
+    },
+    "access": {
+      "mean": 1.0,
+      "halfwidth": 0.0,
+      "n": 10000
+    },
+    "episode_on": {
+      "mean": 0.026493389129013594,
+      "halfwidth": 7.468297116089523e-05,
+      "n": 10000,
+      "total_observations": 36007441
+    },
+    "episode_off": {
+      "mean": 0.02464438594320392,
+      "halfwidth": 6.863870545483301e-05,
+      "n": 10000,
+      "total_observations": 78387381
+    },
+    "episode_E": {
+      "mean": 0.02464557078696623,
+      "halfwidth": 7.063968440283779e-05,
+      "n": 10000,
+      "total_observations": 6005969
+    },
+    "count_on": {
+      "mean": 3600.7441,
+      "halfwidth": 1.1671314429405357,
+      "n": 10000
+    },
+    "count_off": {
+      "mean": 7838.7381,
+      "halfwidth": 1.728356790653646,
+      "n": 10000
+    },
+    "count_E": {
+      "mean": 600.5969,
+      "halfwidth": 0.47642145600511837,
+      "n": 10000
+    },
+    "cost_on": {
+      "mean": 3.310508234118457,
+      "halfwidth": 0.008964894819553515,
+      "n": 10000,
+      "total_observations": 36007441
+    },
+    "cost_off": {
+      "mean": 3.740214191926957,
+      "halfwidth": 0.010959335909793581,
+      "n": 10000,
+      "total_observations": 78387381
+    },
+    "cost_E": {
+      "mean": 3.740079440464786,
+      "halfwidth": 0.011226186300465693,
+      "n": 10000,
+      "total_observations": 6005969
+    },
+    "encounter_on_first": {
+      "mean": 0.0178619550147042,
+      "halfwidth": 5.943415235309597e-05,
+      "n": 10000,
+      "total_observations": 36007441
+    },
+    "encounter_on_followup": {
+      "mean": 0.01786141187397007,
+      "halfwidth": 5.943273619714532e-05,
+      "n": 10000,
+      "total_observations": 38799560
+    },
+    "encounter_off_first": {
+      "mean": 0.01750042736711426,
+      "halfwidth": 6.107778383142756e-05,
+      "n": 10000,
+      "total_observations": 84393350
+    },
+    "encounter_off_followup": {
+      "mean": 0.017511877319748764,
+      "halfwidth": 6.18711666643291e-05,
+      "n": 10000,
+      "total_observations": 12603223
+    },
+    "n_on_first": {
+      "mean": 3600.7441,
+      "halfwidth": 1.1671314429405357,
+      "n": 10000
+    },
+    "n_on_followup": {
+      "mean": 3879.956,
+      "halfwidth": 1.2096898800140514,
+      "n": 10000
+    },
+    "n_off_first": {
+      "mean": 8439.335,
+      "halfwidth": 1.810175657179401,
+      "n": 10000
+    },
+    "n_off_followup": {
+      "mean": 1260.3223,
+      "halfwidth": 0.694746167430204,
+      "n": 10000
+    },
+    "virtual_on": {
+      "mean": 0.017863197704270185,
+      "halfwidth": 5.3416987440269584e-05,
+      "n": 10000
+    },
+    "virtual_off": {
+      "mean": 0.017505979450672927,
+      "halfwidth": 5.620101436942084e-05,
+      "n": 10000
+    }
+  },
+  "name": "prescribed_VF",
+  "seconds": 39.43101119995117,
+  "delay_estimator": "ratio of totals; independent-replication cluster delta-method t interval"
+}
