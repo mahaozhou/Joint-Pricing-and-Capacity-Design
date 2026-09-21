@@ -1,0 +1,144 @@
+{
+  "configurations": 190,
+  "final_evaluations": 11,
+  "replications_per_evaluation": 10000,
+  "raw_arrays": [
+    {
+      "case": "moderate",
+      "shape": [
+        10000,
+        22
+      ],
+      "seed": 910000,
+      "sha256": "24caaeab54e5d1275e188673cfa034b52db433cc7a6a65430949cf8c3205a64e"
+    },
+    {
+      "case": "high",
+      "shape": [
+        10000,
+        22
+      ],
+      "seed": 910000,
+      "sha256": "78c86dad0fbfa82043202953d0ee745bdcdb087b6577e5dc75366b0edc11fa09"
+    },
+    {
+      "case": "mixed",
+      "shape": [
+        10000,
+        22
+      ],
+      "seed": 910000,
+      "sha256": "8edf60f772afcf3a24b173c128ba5f6c1ff0dd7920c799a2b27bc716d3f54205"
+    },
+    {
+      "case": "mixed_high",
+      "shape": [
+        10000,
+        22
+      ],
+      "seed": 910000,
+      "sha256": "f80db787a5b6a99d8c529ae9b9ccad3e387eccc9cc0927b33a5e483b7074cae2"
+    },
+    {
+      "case": "prescribed_VF",
+      "shape": [
+        10000,
+        22
+      ],
+      "seed": 1910000,
+      "sha256": "553b09491487259d3f75d098496e7147481a8567c3be97b12ac56b40b2d56a67"
+    },
+    {
+      "case": "prescribed_BVF",
+      "shape": [
+        10000,
+        22
+      ],
+      "seed": 1910000,
+      "sha256": "fea4a8e8a921982be3bf9713b33b351e0a50651c5dbc58e624b4c3dc605817c7"
+    },
+    {
+      "case": "staffing",
+      "shape": [
+        10000,
+        22
+      ],
+      "seed": 1910000,
+      "sha256": "9c4d286a16fbddf5b5111fc61804e46a172d6cc015abb9bb551d3c7b56148ac3"
+    },
+    {
+      "case": "long_window",
+      "shape": [
+        10000,
+        22
+      ],
+      "seed": 1910000,
+      "sha256": "14543aa3ee9ec3cd706ee6fdb45e2e9007cd7745608a010a69653f0616637a39"
+    },
+    {
+      "case": "state_base",
+      "shape": [
+        10000,
+        22
+      ],
+      "seed": 4010000,
+      "sha256": "53d73cf57f59746e915c97111a22a012d8fbbbd4d601d4acc8cf7c43d13f5b0f"
+    },
+    {
+      "case": "state_max_offline",
+      "shape": [
+        10000,
+        22
+      ],
+      "seed": 4010000,
+      "sha256": "9bc1d1993e87e93b8d459b1906f7424684ceb26ccb2a92b48c69cf9e8ad31574"
+    },
+    {
+      "case": "state_selected",
+      "shape": [
+        10000,
+        22
+      ],
+      "seed": 4010000,
+      "sha256": "f2e3c374c37c7eb4eb754eaddf198ef2eb354928c6c68a1236c892f5de4e7f67"
+    }
+  ],
+  "pdfs": [
+    {
+      "name": "main",
+      "pages": 24,
+      "sha256": "480144ebb919becaa14064b907e26a0b151f9efca76ceb839897ca86cd4dbdae"
+    },
+    {
+      "name": "main_blinded",
+      "pages": 24,
+      "sha256": "3c91f072e29051001189da298f60929076406f11486efa3c1c1dcfa038231ec2"
+    },
+    {
+      "name": "supplement",
+      "pages": 17,
+      "sha256": "dc4a3bc970d129e25d71e197185871903d305eb8115a583f385385b819336f76"
+    },
+    {
+      "name": "response_iise_resubmission",
+      "pages": 13,
+      "sha256": "881c25ebd8d8e02274472f336b7b293299d080810af644c97f36b9e592b25686"
+    },
+    {
+      "name": "cover_letter",
+      "pages": 1,
+      "sha256": "30122340770bcdfd054e9f6692637210c7bcde5b7da38a04f647fb7489f1c69a"
+    },
+    {
+      "name": "reproducibility_report",
+      "pages": 3,
+      "sha256": "a11817479484fdf546fbe3e5435b566ba9607f0b59e3b7a662e34ff632e79c78"
+    },
+    {
+      "name": "title_page",
+      "pages": 1,
+      "sha256": "f5d92c6144f83287439c2a5dc983e7951f898c4cc9c6ae1aa982964ac4f47dc1"
+    }
+  ],
+  "checks": "Counts, finite outputs, saved-statistic consistency, transfer arithmetic, equilibrium residuals, source-attachment identity, blinded text/metadata, page boundaries, LaTeX references and overfull boxes. Rendered pages require visual inspection."
+}
