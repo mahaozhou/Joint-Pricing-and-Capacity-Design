@@ -1,0 +1,16 @@
+[
+  {
+    "policy": "state_max_offline",
+    "objective_difference": 365.77120723445034,
+    "objective_halfwidth": 4.647328654541532,
+    "access_difference_pp": 2.1187892088715214,
+    "access_halfwidth_pp": 0.012101878749484363
+  },
+  {
+    "policy": "state_selected",
+    "objective_difference": 4450.878116176474,
+    "objective_halfwidth": 5.705074145163848,
+    "access_difference_pp": 13.047323234689662,
+    "access_halfwidth_pp": 0.010118639424165169
+  }
+]

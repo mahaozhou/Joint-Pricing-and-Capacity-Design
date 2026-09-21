@@ -1,0 +1,185 @@
+{
+  "model": {
+    "demand": 878,
+    "required": 30.0,
+    "d1": 0.35,
+    "d2": 0.4,
+    "gamma": -1.0,
+    "dE": -1.0,
+    "value": 50.0,
+    "premium": 15,
+    "travel": 20.0,
+    "preference": 0.0,
+    "cost_on": 112.0,
+    "cost_off": 168.0,
+    "capacity": 972.0,
+    "cap_on": 60.0,
+    "cap_off": 80.0,
+    "penalty": 10.0,
+    "followup_fee": 1.0,
+    "copay": 1.0,
+    "revenue_E": 1.0,
+    "elasticity": 0.0,
+    "recurrent": false,
+    "servers": 0,
+    "nu": 54.0
+  },
+  "policy": {
+    "mu_on": 710.5991350867232,
+    "mu_off": 261.4008649132768,
+    "decision": 710.5991350867232,
+    "p_on": 13.633785291966518,
+    "p_off": 80.0,
+    "flow_on": 572.8686844427782,
+    "flow_off": 0.0,
+    "required_actual": 30.0,
+    "region": "BV",
+    "gross": 27507.74884227133,
+    "penalty": 3051.313155572218,
+    "objective": 24456.43568669911,
+    "access": 0.6524700278391551,
+    "wait_on": 0.021964102615640694,
+    "wait_off": 0.032365784782196746,
+    "wait_E": 0.04115142582845303,
+    "wait_initial_on": 0.03636710165559925,
+    "wait_initial_off": 0.04115142582845303,
+    "exposure": 0.03660517958017792,
+    "utility_on": -8.881784197001252e-16,
+    "utility_off": -46.874957757376364,
+    "residual": 8.881784197001252e-16,
+    "referral_forward": 200.50403955497237,
+    "referral_reverse": 92.20161582198894,
+    "regional_support": "BV",
+    "regional_target_v": 572.8686844427782,
+    "regional_target_f": 0.0,
+    "regional_nfev": 241,
+    "regime": "dual",
+    "solver": "regional",
+    "search_best": 24456.43568669911,
+    "search_spread": 0.0,
+    "regional_candidates": {
+      "B": -5660.0,
+      "BF": 22889.564446156863,
+      "BV": 24456.43568669911
+    }
+  },
+  "mode": "wardrop",
+  "replications": 10000,
+  "seed": 910000,
+  "warmup": 10.0,
+  "measurement": 20.0,
+  "statistics": {
+    "gross": {
+      "mean": 27503.36661683566,
+      "halfwidth": 6.580359922728044,
+      "n": 10000
+    },
+    "objective": {
+      "mean": 24452.77901683566,
+      "halfwidth": 6.610758389334333,
+      "n": 10000
+    },
+    "access": {
+      "mean": 0.6525184797436923,
+      "halfwidth": 6.968248003216105e-05,
+      "n": 10000
+    },
+    "episode_on": {
+      "mean": 0.03624176217303156,
+      "halfwidth": 0.00014822886965317408,
+      "n": 10000,
+      "total_observations": 114570920
+    },
+    "episode_off": null,
+    "episode_E": {
+      "mean": 0.04107453769862943,
+      "halfwidth": 0.0001636638802177461,
+      "n": 10000,
+      "total_observations": 5999101
+    },
+    "count_on": {
+      "mean": 11457.092,
+      "halfwidth": 2.098137866352099,
+      "n": 10000
+    },
+    "count_off": {
+      "mean": 0.0,
+      "halfwidth": 0.0,
+      "n": 10000
+    },
+    "count_E": {
+      "mean": 599.9101,
+      "halfwidth": 0.48297136569578947,
+      "n": 10000
+    },
+    "cost_on": {
+      "mean": 4.692859083702024,
+      "halfwidth": 0.018272450677312684,
+      "n": 10000,
+      "total_observations": 114570920
+    },
+    "cost_off": null,
+    "cost_E": {
+      "mean": 6.411504044483576,
+      "halfwidth": 0.026423071524229135,
+      "n": 10000,
+      "total_observations": 5999101
+    },
+    "encounter_on_first": {
+      "mean": 0.02186357635846205,
+      "halfwidth": 0.00011331670220595243,
+      "n": 10000,
+      "total_observations": 114570920
+    },
+    "encounter_on_followup": {
+      "mean": 0.02186194898506985,
+      "halfwidth": 0.00011444345571285947,
+      "n": 10000,
+      "total_observations": 18436252
+    },
+    "encounter_off_first": {
+      "mean": 0.032342068254233546,
+      "halfwidth": 0.00014874225117327442,
+      "n": 10000,
+      "total_observations": 5999101
+    },
+    "encounter_off_followup": {
+      "mean": 0.032341168155744386,
+      "halfwidth": 0.00014636104250683195,
+      "n": 10000,
+      "total_observations": 40091427
+    },
+    "n_on_first": {
+      "mean": 11457.092,
+      "halfwidth": 2.098137866352099,
+      "n": 10000
+    },
+    "n_on_followup": {
+      "mean": 1843.6252,
+      "halfwidth": 0.8292742825185812,
+      "n": 10000
+    },
+    "n_off_first": {
+      "mean": 599.9101,
+      "halfwidth": 0.48297136569578947,
+      "n": 10000
+    },
+    "n_off_followup": {
+      "mean": 4009.1427,
+      "halfwidth": 1.2354602258255825,
+      "n": 10000
+    },
+    "virtual_on": {
+      "mean": 0.021869209433298193,
+      "halfwidth": 0.000108110037078124,
+      "n": 10000
+    },
+    "virtual_off": {
+      "mean": 0.032337599524300785,
+      "halfwidth": 0.00013302317120716687,
+      "n": 10000
+    }
+  },
+  "name": "mixed_high",
+  "seconds": 25.941903829574585
+}

@@ -1,0 +1,7 @@
+{
+  "allocation_scenario_evaluations": 204,
+  "max_equilibrium_residual": 1.9994747368912158e-07,
+  "erlang_c_independent_formula": "passed",
+  "policy_reconstruction": "passed",
+  "nested_pricing_per_split": "passed"
+}
