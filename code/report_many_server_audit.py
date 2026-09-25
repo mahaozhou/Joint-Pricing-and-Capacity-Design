@@ -39,8 +39,8 @@ def build():
             pr.append([row['label'],regimes[row['regime']],f"({r['k_v']},{r['k_f']})",f"{r['p_on']:.2f}",f"{r['p_off']:.2f}",f"{r['objective']:,.1f}",f"{100*r['access']:.1f}"])
     (OUT/'transfers.json').write_text(json.dumps(transfers,indent=2))
     (TABLES/'multiserver_staffing.tex').write_text(table(
-        'Reoptimized multi-server policies for $K=18$, $\\nu=54$, $s=15$, and F2. Implementation loss retains continuous-policy prices and rounds its capacity to clinicians. Referral loss implements the workload-matched simplified policy in the full multi-server system; both losses are differences in $J$.',
-        'tab:staffing','rrcrrrrrr',r'$\Lambda$ & $\delta_2$ & $(k_v,k_f)$ & $p_v$ & $p_f$ & $J$ & Access (\%) & Impl. loss & Ref. loss',sr))
+        'Reoptimized multi-server policies for $K=18$, $\\nu=54$, $s=15$, and F2. Implementation loss retains continuous-policy prices and rounds its capacity to clinicians. Omission loss implements the workload-matched simplified policy in the full multi-server system. Both losses are differences in $J$.',
+        'tab:staffing','rrcrrrrrr',r'$\Lambda$ & $\delta_2$ & $(k_v,k_f)$ & $p_v$ & $p_f$ & $J$ & Access (\%) & Impl. loss & Omission loss',sr))
     (TABLES/'multiserver_utilization.tex').write_text(table(
         'Utilization of every selected multi-server policy in the representative design. Labels L572 and L878 denote demand, and d denotes $\\delta_2$; these six cases use $s=15$ and F2. A and B use the representative pricing scenarios in the main text. Loads are encounters per clinic-day; utilization is in percent.',
         'tab:staff-utilization','llrrrrrr',r'Case & Regime & $k_v$ & $k_f$ & $\ell_v$ & $\ell_f$ & $\rho_v$ (\%) & $\rho_f$ (\%)',ur))

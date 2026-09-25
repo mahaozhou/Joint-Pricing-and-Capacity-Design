@@ -97,7 +97,7 @@ def wardrop(L, q, e, capacities, ks, costs, a):
             u, w = utility(x, q, e, capacities, ks, costs, a)
             if u[j] >= -tol and u[j] >= u[1-j]-tol:
                 return x, w, 1+j
-    # Single active channel and balking: strictly decreasing own utility.
+    # Single active channel and nonparticipation: strictly decreasing own utility.
     for j in range(2):
         hi = L
         for h in range(2):
@@ -147,7 +147,7 @@ def wardrop(L, q, e, capacities, ks, costs, a):
             u,w=utility(x,q,e,capacities,ks,costs,a)
             if min(u) >= -tol:
                 return x,w,5
-    # Both channels and balking: invert target delays then visit matrix.
+    # Both channels and nonparticipation: invert target delays then encounter matrix.
     det = q[0,0]*q[1,1]-q[0,1]*q[1,0]
     target = np.array([(q[1,1]*a[0]-q[1,0]*a[1])/det/costs[0],
                        (-q[0,1]*a[0]+q[0,0]*a[1])/det/costs[1]])

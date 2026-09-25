@@ -27,10 +27,10 @@ DELAY_LABELS = {
     'episode_on': 'Virtual-first episode',
     'episode_off': 'In-person-first episode',
     'episode_E': 'Exogenous episode',
-    'encounter_on_first': 'Initial virtual visit',
+    'encounter_on_first': 'Initial virtual encounter',
     'encounter_on_followup': 'Virtual follow-up',
-    'encounter_off_first': 'Initial in-person visit',
-    'encounter_off_followup': 'Referred in-person visit',
+    'encounter_off_first': 'Initial in-person encounter',
+    'encounter_off_followup': 'Referred in-person encounter',
 }
 def table(caption,label,cols,headers,rows,size='small'):
     caption=short_caption(caption)
@@ -46,6 +46,8 @@ def build():
         return {
             'prescribed_VF':'constructed VF',
             'prescribed_BVF':'constructed BVF',
+            'mixed':'virtual-only',
+            'mixed_high':'partial virtual',
             'state_max_offline':'maximum in-person price',
         }.get(name,name.replace('state_','').replace('_',' '))
     def select(group,**kwargs):
@@ -82,7 +84,7 @@ def build():
     write('referral_text.tex',f'At $\\delta_2=0.1$ and $s=15$, the F2 policy uses support {p0["region"]} at $\\Lambda=572$ and {p1["region"]} at $\\Lambda=878$. '
           f'The corresponding access rates are {100*p0["access"]:.1f}\\% and {100*p1["access"]:.1f}\\%. '
           'Figure~\\ref{fig:referral} shows how changing in-person-to-virtual follow-up alone alters prices, capacity, and entry. '
-          'The two-dimensional map in Figure~\\ref{fig:map} separates the workload threshold from the provider\'s preferred support: a workload ordering is not itself a revenue-optimal switching rule. '
+          'The two-dimensional map in Figure~\\ref{fig:map} separates the workload threshold from the provider\'s preferred support: a workload ordering is not itself an objective-optimal switching rule. '
           'Full-grid outcomes, including zero entry under high fixed tariffs, remain in the comparison.\n')
     tr=[]
     for reg in regime:
@@ -108,8 +110,16 @@ def build():
         elasticity.append([f'{eta:.2f}',f'{r["required_actual"]:.2f}',f'{r["p_on"]:.2f}',f'{r["p_off"]:.2f}',f'{r["mu_on"]:.2f}',f'{r["mu_off"]:.2f}',number(r['objective']),f'{100*r["access"]:.2f}'])
     write('elasticity_table.tex',table('Price-responsive exogenous in-person demand under F2, with $\\Lambda=878$, $E_0=30$, $s=15$, $\\delta_1=0.35$, $\\delta_2=0.4$, and $M=972$.','tab:elasticity','rrrrrrrr',
         ['$\\eta$','$E(p)$','$p_v$','$p_f$','$m_v$','$m_f$','$J$','Access (\\%)'],elasticity,'scriptsize'))
+    heterogeneity=[]
+    for de in [0.,.1,.4,.7]:
+        x=next(r for r in rows if r['group']=='heterogeneity' and r['model']['dE']==de)
+        r=x['result']
+        heterogeneity.append([f'{de:.1f}',number(r['objective']),f'{100*r["access"]:.2f}',
+            f'{r["mu_on"]:.2f}',f'{r["p_on"]:.2f}',f'{r["p_off"]:.2f}'])
+    write('deltaE_table.tex',table('Exogenous-patient follow-up sensitivity','tab:deltaE','rrrrrr',
+        ['$\\delta_E$','$J$','Access (\\%)','$m_v$','$p_v$','$p_f$'],heterogeneity,'scriptsize'))
     fig,axs=plt.subplots(1,3,figsize=(8.5,2.8),layout='constrained')
-    for variant,col,label in [('total','#b6404f','Fixed total capacity'),('residual','#177e89','Fixed residual capacity'),('no_income','#666666','Exogenous receipts removed')]:
+    for variant,col,label in [('total','#b6404f','Fixed total capacity'),('residual','#177e89','Fixed aggregate residual capacity'),('no_income','#666666','Exogenous receipts removed')]:
         s=sorted([r for r in rows if r['group']=='required' and r['regime']=='dual' and r['label'].startswith(variant+'_')],key=lambda r:r['model']['required'])
         for ax,key,scale,title in zip(axs,['objective','access','p_off'],[1,100,1],['Penalized objective','Strategic access (%)','In-person price']):
             ax.plot([r['model']['required'] for r in s],[r['result'][key]*scale for r in s],marker='o',ms=3,color=col,label=label)
@@ -120,10 +130,10 @@ def build():
     a0,a90=[next(r['result'] for r in rows if r['group']=='required' and r['label']==f'residual_E{e}' and r['regime']=='dual') for e in [0,90]]
     write('required_text.tex',f'At fixed total capacity, increasing exogenous in-person arrivals from 0 to 90 changes strategic access from {100*r0["access"]:.2f}\\% to {100*r90["access"]:.2f}\\%, '
         f'while the objective changes from {number(r0["objective"])} to {number(r90["objective"])}. '
-        f'When total capacity is adjusted to hold residual capacity fixed, access changes from {100*a0["access"]:.2f}\\% to {100*a90["access"]:.2f}\\%. '
-        'This comparison isolates the price-dependent effect from the direct loss of residual capacity. '
-        'The no-revenue curve in Figure~\\ref{fig:required} retains physical load and removes exogenous-patient receipts only from the provider objective. '
-        'Its monetary level is therefore not directly comparable to the other curves as a common accounting measure; its policy changes identify the direct revenue incentive.\n')
+        f'When total capacity is adjusted to hold aggregate capacity net of exogenous workload fixed, access changes from {100*a0["access"]:.2f}\\% to {100*a90["access"]:.2f}\\%. '
+        'This comparison does not hold residual capacity fixed within each service pool. '
+        'The receipt-exclusion curve in Figure~\\ref{fig:required} retains physical load and removes exogenous-patient receipts only from the provider objective. '
+        'Its monetary level is therefore not directly comparable to the other curves as a common accounting measure. Its policy changes identify the direct receipt incentive.\n')
     referral_staff=json.loads((STAFFING/'staffing_referral_transfers.json').read_text())
     referral_staff_by_label={z['label']:z for z in referral_staff}
     st=[]
@@ -140,24 +150,27 @@ def build():
         'A second comparison keeps the multi-server capacity representation in both planning models. The simpler model retains actual exogenous follow-up workload and omits only strategic in-person-to-virtual follow-up. '
         f'Its six transferred policies are stable, with objective losses ranging from {number(min(z["loss"] for z in referral_staff))} to {number(max(z["loss"] for z in referral_staff))}. '
         'Thus, the decision value of accounting for strategic follow-up also appears with parallel clinicians. The staffing decision incorporates the congestion function of the deployed capacity representation.\n')
-    fig,axs=plt.subplots(1,2,figsize=(8.2,3.0),layout='constrained')
+    fig,ax=plt.subplots(figsize=(5.2,3.0),layout='constrained')
     for variant,col,label in [('one_referral','#888888','Truncated'),('staged','#177e89','Staged'),('recurrent','#b6404f','Recurrent')]:
         s=sorted([r for r in rows if r['group']=='pathway' and r['label'].startswith(variant+'_')],key=lambda r:r['model']['d2'])
-        axs[0].plot([r['model']['d2'] for r in s],[100*r['result']['access'] for r in s],marker='o',color=col,label=label)
-    axs[0].set(xlabel=r'$\delta_2$',ylabel='Strategic access (%)');axs[0].legend(frameon=False)
-    axr=axs[1].twinx()
+        ax.plot([r['model']['d2'] for r in s],[100*r['result']['access'] for r in s],marker='o',color=col,label=label)
+    ax.set(xlabel=r'$\delta_2$',ylabel='Strategic access (%)');ax.legend(frameon=False)
+    save(fig,'pathway_comparison')
+    fig,ax=plt.subplots(figsize=(5.2,3.0),layout='constrained')
+    axr=ax.twinx()
     for copay,col in [(1.,'#177e89'),(.3,'#b6404f')]:
         s=sorted(select('payment',copay=copay),key=lambda r:r['model']['followup_fee'])
         xx=[r['model']['followup_fee'] for r in s]
-        axs[1].plot(xx,[r['result']['objective'] for r in s],marker='o',color=col,label=rf'$\alpha={copay:g}$')
+        ax.plot(xx,[r['result']['objective'] for r in s],marker='o',color=col,label=rf'$\alpha={copay:g}$')
         axr.plot(xx,[100*r['result']['access'] for r in s],ls='--',color=col)
-    axs[1].set(xlabel=r'Follow-up billing fraction $\theta$',ylabel='Objective (solid)');axr.set_ylabel('Access (%) (dashed)');axs[1].legend(frameon=False,loc='center')
-    save(fig,'pathways')
+    ax.set(xlabel=r'Billing fraction for additional encounters $\theta$',ylabel='Objective (solid)')
+    axr.set_ylabel('Access (%) (dashed)');ax.legend(frameon=False,loc='center')
+    save(fig,'payment_arrangements')
     p= {r['label']:r['result'] for r in rows if r['group']=='pathway'}
     write('pathway_text.tex',f'At $\\delta_2=0.4$, strategic access is {100*p["one_referral_d0.4"]["access"]:.2f}\\% in the truncated-pathway system, '
         f'{100*p["staged_d0.4"]["access"]:.2f}\\% in the staged system, and {100*p["recurrent_d0.4"]["access"]:.2f}\\% in the recurrent system. '
         'The truncated-pathway and staged continuous-baseline policies use the regional characterization, whereas the recurrent policy is selected numerically under its distinct workload matrix. '
-        'The billing and patient cost-sharing comparisons in Figure~\\ref{fig:pathways} also show that provider receipts and participation must be evaluated under the same payment specification.\n')
+        'The payment comparison is reported separately in Supplemental Figure~\\ref{fig:payment-arrangements}.\n')
     sims={s['name']:s for s in sim};chosen=[sims[k] for k in ['moderate','high','prescribed_VF','prescribed_BVF'] if k in sims]
     sr=[]
     for s in chosen:
@@ -168,7 +181,7 @@ def build():
         ['Case','Support','Analytic $J$','Simulated $J$','Analytic $W_E$','Simulated $W_E$'],sr,'scriptsize'))
     errs=[abs(s['statistics']['objective']['mean']-s['policy']['objective'])/max(1,abs(s['policy']['objective']))*100 for s in chosen]
     write('simulation_text.tex',f'The largest absolute relative difference between the analytic objective and the simulation mean in Table~\\ref{{tab:des}} is {max(errs):.3f}\\%. '
-          'Revenue agreement checks encounter accounting. The independently recorded episode and encounter delays provide the congestion check. '
+          'Provider-receipt agreement checks encounter accounting. The independently recorded episode and encounter delays provide the congestion check. '
           'Supplemental Material~D reports all class-specific delay estimates and utility deviations, including virtual-entry checks for unused initial channels.\n')
     # Supplement tables are longtable so that every configured outcome remains visible.
     lines=[r'\begin{longtable}{p{1.8cm}p{3.35cm}lrrrr}',r'\caption{Full configured results. Capacity is a virtual-service rate for continuous models and a clinician count for staffing.}\label{tab:all}\\',
@@ -178,7 +191,31 @@ def build():
         r=row['result'];m=row['model']
         lines.append(' & '.join([row['group'],row['label'].replace('_',' '),regime[row['regime']],f'{m["demand"]:.0f}',number(r['objective']),f'{100*r["access"]:.1f}',f'{r["decision"]:.1f}'])+r'\\')
     lines.extend([r'\bottomrule\end{longtable}']);write('full_table.tex','\n'.join(lines))
-    # Full class-specific simulation and utility estimates (replication-level CIs).
+    # Definitions and class-specific checks follow the order used in Supplemental D.2.
+    case_order=['moderate','high','prescribed_VF','prescribed_BVF',
+                'mixed','mixed_high','staffing','long_window']
+    sim=sorted(sim,key=lambda s:case_order.index(s['name']))
+    case_sources={
+        'moderate':'Selected baseline policy',
+        'high':'Selected baseline policy',
+        'prescribed_VF':'Prescribed mixed-route policy',
+        'prescribed_BVF':'Prescribed mixed-route policy',
+        'mixed':'Selected staged policy',
+        'mixed_high':'Selected staged policy',
+        'staffing':'Explicit staffing policy',
+        'long_window':'Constructed BVF policy',
+    }
+    case_rows=[]
+    for s in sim:
+        m=s['model']
+        setting=(f'{int(s["warmup"])} warm-up, {int(s["measurement"])} measurement days'
+                 if s['name']=='long_window' else
+                 rf'$\Lambda={m["demand"]:g}$, $s={m["premium"]:g}$, $\delta_2={m["d2"]:.1f}$'
+                 +(', $K=18$' if s['name']=='staffing' else ''))
+        case_rows.append([case_name(s['name']),rf'$\mathsf{{{s["policy"]["region"]}}}$',
+                          case_sources[s['name']],setting])
+    write('validation_cases.tex',table('Simulation validation cases','tab:validation-cases','llll',
+        ['Case','Support','Policy source','Key setting'],case_rows,'scriptsize'))
     details=[];utility_rows=[]
     for s in sim:
         stats=s['statistics'];r=s['policy'];m=s['model']
@@ -198,17 +235,19 @@ def build():
         caption=short_caption(caption)
         heading='\\toprule '+' & '.join(headers)+r'\\\midrule'
         return '\\begin{longtable}{'+cols+'}\n\\caption{'+caption+'}\\label{'+label+'}\\\\\n'+heading+r'\endfirsthead'+'\n'+heading+r'\endhead'+'\n'+'\n'.join(' & '.join(r)+r'\\' for r in lines)+'\n\\bottomrule\\end{longtable}\n'
-    write('delay_details.tex',longtable(['Case','Class','Theory','DES mean','95\\% half-width'],details,'tab:delaydetails','Encounter and episode delays in minutes. Empty classes are omitted.','llrrr'))
-    write('utility_details.tex',longtable(['Case','Initial option','Theory','DES estimate','95\\% half-width'],utility_rows,'tab:utilities','Utility checks using time-integrated virtual-arrival delays.','llrrr'))
+    write('delay_details.tex',longtable(['Case','Class','Analytical','DES mean','95\\% half-width'],details,
+        'tab:delaydetails','Encounter and episode delay validation','llrrr'))
+    write('utility_details.tex',longtable(['Case','Initial option','Analytical','DES estimate','95\\% half-width'],utility_rows,
+        'tab:utilities','Patient utility validation','llrrr'))
     transfer_detail=[];transfer_export=[]
-    for kind,items in [('Referral-omission benchmark',transfers),('Workload-matched referral-omission benchmark',aware)]:
+    for kind,items in [('Basic omission',transfers),('Workload-matched omission',aware)]:
         for reg in regime:
             cases=[z for z in items if z['regime']==reg];valid=[z for z in cases if z['transferred'] is not None]
             if valid:
                 dj=np.median([z['loss'] for z in valid])
                 da=100*np.median([z['full']['access']-z['transferred']['access'] for z in valid])
                 dw=480*np.median([z['transferred']['wait_E']-z['full']['wait_E'] for z in valid])
-                nums=[number(dj),f'{da:.2f}',f'{dw:.2f}']
+                nums=[number(dj),f'{da:.2f}',number(dw,2)]
             else:nums=['--','--','--']
             transfer_detail.append([kind,regime[reg],str(len(cases)-len(valid))+'/'+str(len(cases)),*nums])
         for z in items:
@@ -217,8 +256,9 @@ def build():
             d.update({'transferred_'+k:v for k,v in (z['transferred'] or {}).items()})
             transfer_export.append(d)
     pd.DataFrame(transfer_export).to_csv(OUT/'policy_transfers.csv',index=False)
-    write('transfer_details.tex',table('Performance of simplified-model policies implemented in the full staged system. Medians use feasible comparisons only. Both policies are evaluated in the full staged system: $\\Delta J=J_{\\rm full}(\\pi_{\\rm full}^*)-J_{\\rm full}(\\pi_{\\rm simp}^*)$. Access loss $\\Delta A$ and delay increase $\\Delta W_E$ follow the same policy comparison, in percentage points and minutes, respectively.','tab:transferdetails','llrrrr',
-        ['Planning benchmark','Regime','Infeasible','$\\Delta J$','$\\Delta A$','$\\Delta W_E$'],transfer_detail,'scriptsize'))
+    write('transfer_details.tex',table('Implementation performance of follow-up-omission policies',
+        'tab:transferdetails','llrrrr',
+        ['Planning model','Regime','Infeasible','$\\Delta J$','$\\Delta A$','$\\Delta W_E$'],transfer_detail,'scriptsize'))
     reserves=read('reserve_sensitivity.json')
     rr=[]
     for z in reserves:
@@ -226,7 +266,7 @@ def build():
         rr.append([f'{z["required_slack"]:.0f}',f'{m["demand"]:.0f}',f'{m["d2"]:.1f}',number(f['objective']),number(t['objective']),number(z['loss']),f'{100*f["access"]:.1f}',f'{100*t["access"]:.1f}',number(480*t['wait_E'],2)])
     write('reserve_table.tex',table('Common capacity buffers in both F2 planning models, with $s=15$. Policies are recomputed for each buffer $\\varepsilon$. Subscripts F and S denote the full-model policy and the simplified-model policy implemented in the full system. Delay is in minutes.','tab:reserve','rrrrrrrrr',
         ['$\\varepsilon$','$\\Lambda$','$\\delta_2$','$J_F$','$J_S$','Loss','$A_F$ (\\%)','$A_S$ (\\%)','$W_{E,S}$'],rr,'scriptsize').replace('[ht]','[H]'))
-    write('reserve_text.tex',f'A further twelve paired comparisons impose common capacity buffers of 54 or 108 rate units above exogenous workload at each node and reoptimize both planning models under the same buffer. '
+    write('reserve_text.tex',f'A further twelve paired comparisons impose common capacity buffers of 54 or 108 encounter-rate units above exogenous workload at each service pool and reoptimize both planning models under the same buffer. '
         f'All transfers remain stable, with objective losses from {number(min(z["loss"] for z in reserves))} to {number(max(z["loss"] for z in reserves))}. '
         'The largest exogenous-patient delay effects occur when a simplified-model policy operates close to the stability boundary, where the reciprocal queueing delay increases sharply. With common buffers of 54 or 108 rate units, every implemented policy remains stable and the objective losses persist, so the decision differences are not explained solely by proximity to instability. Supplemental Material~C reports these comparisons.\n')
     if (STATE/'state_validation.json').exists():
