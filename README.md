@@ -4,7 +4,7 @@ This repository contains the computational materials used for the numerical anal
 
 ## Data availability
 
-The underlying department-level operational data used for empirical calibration cannot be publicly released due to a confidentiality agreement. The numerical experiments can nevertheless be reproduced using the model primitives, calibrated quantities, and sensitivity ranges reported in the manuscript and Supplemental Online Materials. The files in `results/` are saved computational outputs and do not contain the confidential raw operational data.
+The underlying department-level operational data used to anchor the numerical demand and capacity scales cannot be publicly released due to a confidentiality agreement. The numerical experiments can nevertheless be reproduced using the model primitives, reported parameter values, and sensitivity ranges provided in the manuscript and Supplemental Online Materials. The files in `results/` are saved computational outputs and do not contain the confidential raw operational data.
 
 ## Repository structure
 
