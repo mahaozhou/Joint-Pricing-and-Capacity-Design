@@ -34,13 +34,13 @@ STYLE = {
     "axes.linewidth": 0.65,
     "axes.spines.top": False,
     "axes.spines.right": False,
-    "xtick.labelsize": 8.5,
-    "ytick.labelsize": 8.5,
+    "xtick.labelsize": 9,
+    "ytick.labelsize": 9,
     "xtick.major.width": 0.65,
     "ytick.major.width": 0.65,
     "xtick.major.size": 3,
     "ytick.major.size": 3,
-    "legend.fontsize": 8.5,
+    "legend.fontsize": 9,
     "legend.frameon": False,
     "legend.borderaxespad": 0.4,
     "hatch.linewidth": 0.4,
@@ -185,7 +185,7 @@ def patient_sojourn(data):
         ax.plot(row.d_critical, 0, **style, markersize=4.8, markeredgewidth=0.9)
         ax.annotate(
             f"{row.d_critical:.4f}", (row.d_critical, 0), xytext=offset, textcoords="offset points",
-            ha=align, va="bottom" if offset[1] > 0 else "top", fontsize=8.5,
+            ha=align, va="bottom" if offset[1] > 0 else "top", fontsize=9,
         )
     ax.set(
         xlabel=r"Subgroup follow-up probability $\delta_{E,i}$",

@@ -47,7 +47,7 @@ def independent_probabilities(results):
             for point in subset.itertuples(index=False):
                 ax.annotate(
                     str(point.k_v), (point.a, point.b), xytext=(0, 4.5),
-                    textcoords="offset points", ha="center", va="bottom", fontsize=8,
+                    textcoords="offset points", ha="center", va="bottom", fontsize=9,
                 )
             ax.set_axisbelow(True)
             ax.grid(axis="y", color="#e3e3e3", linewidth=0.55)
