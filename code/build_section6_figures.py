@@ -189,7 +189,7 @@ def patient_sojourn(data):
         )
     ax.set(
         xlabel=r"Subgroup follow-up probability $\delta_{E,i}$",
-        ylabel=r"Change in episode sojourn time $\Delta D_{E,i}$ (min)",
+        ylabel="Episode sojourn time change (min)",
         xlim=(0, 1), ylim=(-10, 42), yticks=[-10, 0, 10, 20, 30, 40],
     )
     ax.legend(loc="upper left")
