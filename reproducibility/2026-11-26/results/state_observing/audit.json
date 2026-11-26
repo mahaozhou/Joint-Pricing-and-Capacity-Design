@@ -1,0 +1,34 @@
+{
+  "replications_per_policy_per_rule": 100,
+  "policy_count": 11,
+  "simulation_runs": 2200,
+  "total_events": 1710454234,
+  "strategic_arrivals_per_rule": {
+    "0": 314526861,
+    "1": 314526861
+  },
+  "balks_per_rule": {
+    "0": 0,
+    "1": 0
+  },
+  "baseline_CI_coverage": {
+    "DE_min": 11,
+    "J": 11,
+    "J_realized": 11,
+    "virtual_share_pp": 10
+  },
+  "max_abs_paired_expected_J": 0.0,
+  "realized_J_difference_CI_contains_zero": 10,
+  "all_completed": true,
+  "runtime_log": "100/1100 pairs; elapsed 2.90727 s\n200/1100 pairs; elapsed 5.74129 s\n300/1100 pairs; elapsed 8.66747 s\n400/1100 pairs; elapsed 11.6666 s\n500/1100 pairs; elapsed 14.6185 s\n600/1100 pairs; elapsed 17.5819 s\n700/1100 pairs; elapsed 20.7108 s\n800/1100 pairs; elapsed 23.7113 s\n900/1100 pairs; elapsed 26.6036 s\n1000/1100 pairs; elapsed 29.4614 s\n1100/1100 pairs; elapsed 32.2554 s\nelapsed_seconds=32.2574\n",
+  "extended_runs": 200,
+  "extended_balks": 0,
+  "extended_events": 298309256,
+  "extended_runtime_log": "100/100 pairs; elapsed 5.44596 s\nelapsed_seconds=5.44631\n",
+  "extended_k3_delta_DE": [
+    6.326731800101603,
+    6.30416557581478,
+    6.3492980243884265
+  ],
+  "extended_k3_state_virtual_utilization": 0.9999998200842215
+}

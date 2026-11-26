@@ -1,0 +1,9 @@
+{
+  "workers": 4,
+  "replications": 100,
+  "warmup": 100,
+  "measurement": 1000,
+  "high_load_only": true,
+  "original_reused": 30,
+  "new_replications": 70
+}

@@ -1,0 +1,36 @@
+{
+  "total_rows": 4257,
+  "unique_searches": 3732,
+  "tolerance_rows": 4257,
+  "remaining_rows": 0,
+  "worst_gap": 0.0999999918349203,
+  "median_seconds": 0.0214278180001201,
+  "max_seconds": 17.288951713999268,
+  "max_residual": 2.645798247158382e-09,
+  "path_transfers": 540,
+  "cycle_transfers": 168,
+  "accounts": 108,
+  "elasticity": 48,
+  "grid_ab": 324,
+  "grid_ab_efficiency_in_person": 10,
+  "scaled_threshold_passes": 4,
+  "design_strict_repricing_loss": {
+    "b": 0.255,
+    "k_v": 3.0,
+    "k_v_fixed": 13.0,
+    "J": 26249.991836734695,
+    "J_fixed": 26223.687619047618,
+    "loss_lower": 26.304217687033088,
+    "loss_upper": 26.304217687124037
+  },
+  "v2_reference_switches": 107,
+  "v2_reference_opposite": 77,
+  "v2_reference_unique": 92,
+  "cap_S_passes": 17,
+  "raw_roles": {
+    "in-person": 66,
+    "virtual": 60,
+    "both": 28,
+    "exit": 26
+  }
+}

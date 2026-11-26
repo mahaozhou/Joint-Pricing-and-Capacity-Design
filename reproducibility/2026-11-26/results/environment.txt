@@ -1,0 +1,9 @@
+Python: 3.12.14
+C++ compiler: g++ (Debian 14.2.0-19) 14.2.0
+CPU: INTEL(R) XEON(R) PLATINUM 8573C
+Visible CPUs: 9
+NumPy: 2.3.5
+pandas: 2.2.3
+SciPy: 1.17.0
+Matplotlib: 3.10.8
+mpmath: 1.3.0

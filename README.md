@@ -1,5 +1,11 @@
 # Joint Pricing and Capacity Design - computational materials
 
+## November 2026 resubmission
+
+The [current replication package](reproducibility/2026-11-26/) accompanies the integer-clinician manuscript and Supplemental Material A?G. It contains the solver and simulation sources, the numerical and simulation outputs, the figures, and a command-by-command exhibit index.
+
+## September 2026 computational materials
+
 This repository contains the computational materials used for the numerical analyses in **Strategic Patient Choice in Integrated Outpatient Care: Joint Pricing and Capacity Design with Downstream Follow-Up**.
 
 ## Data availability

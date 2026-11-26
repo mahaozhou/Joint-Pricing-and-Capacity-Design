@@ -1,0 +1,16 @@
+{
+  "mpmath_decimal_digits": 42,
+  "retained_policies": 81,
+  "supports": {
+    "in-person": 12,
+    "virtual+exit": 21,
+    "exit": 5,
+    "in-person+exit": 21,
+    "both": 8,
+    "both+exit": 8,
+    "virtual": 6
+  },
+  "stress_policies": 250,
+  "largest_flow_abs_error": 1.637658897379879e-09,
+  "largest_objective_abs_error": 1.0141229722648859e-07
+}

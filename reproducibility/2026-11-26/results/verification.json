@@ -1,0 +1,27 @@
+{
+  "manuscript_sha256": {
+    "Main_Manuscript.tex": "dddfc69814a2edbad986307ce3338e6b4970a22a6373a8199f70082406ccbc80",
+    "Supplement.tex": "3974c30c7a9f6003876cdd0386ad181f3ed8b3931e9307ea0cdb0c927d621ab1"
+  },
+  "verification_environment": {
+    "os": "Windows 11",
+    "cpu": "Intel Core i5-12450H",
+    "ram_gib_approx": 32,
+    "python": "3.11.4",
+    "cxx": "MinGW-w64 GCC 14.2.0",
+    "workers": 4
+  },
+  "numerical_tables_matching_manuscript": 16,
+  "figure_count": 8,
+  "fresh_searches": 3732,
+  "retained_design_rows": 4257,
+  "maximum_certified_objective_gap": 0.0999999918349203,
+  "runtime_seconds": {
+    "exhibit_rebuild": 13.0,
+    "fresh_optimization_and_analysis": 141.6,
+    "archived_ledger_analysis_and_independent_audit": 16.7,
+    "prescribed_flow_DES": 45.9,
+    "state_observing_DES_events": 79.196,
+    "complete_run_with_archived_ledger": 168.3
+  }
+}

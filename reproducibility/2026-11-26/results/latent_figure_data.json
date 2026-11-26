@@ -1,0 +1,12 @@
+{
+  "O_optimized_J": 2.5500000000000003,
+  "S_optimized_J": 2.5,
+  "O_optimized_k": 2,
+  "S_optimized_k": 2,
+  "O_at_Spolicy_Uv": 0.7238328520552453,
+  "S_at_Spolicy_Uv": -0.785828983693547,
+  "common_Uf": 0.17987182327313148,
+  "transfer_loss_lower": 0,
+  "transfer_loss_upper": 4.884981308350689e-15,
+  "transfer_loss_candidate": 0.0
+}
